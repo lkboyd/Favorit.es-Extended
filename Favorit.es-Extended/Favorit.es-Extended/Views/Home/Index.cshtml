@@ -25,9 +25,20 @@
     @foreach (var item in Model.PhotoCollection)
     {
         <div class="col-xs-6 col-md-4 photo">
-            <a href="@Url.Action("togglefavorite", "home", new { PhotoId = item.PhotoId, SmallUrl = item.SmallUrl, MediumUrl = item.MediumUrl, LargeUrl = item.LargeUrl, Tags = item.Tags })">
+            <a href="@Url.Action("favorite", "home", new { PhotoId = item.PhotoId, SmallUrl = item.SmallUrl, MediumUrl = item.MediumUrl, LargeUrl = item.LargeUrl, Tags = item.Tags })">
                 <img class="img-thumbnail" src="@item.MediumUrl" />
+                @*inline if statement ((condition) ? true : false)*@
                 <div class="@(Model.IsPhotoFavorited(item) ? "heart" : "")"></div>
+
+                @*also works just as well as above*@
+                @*@if (Model.IsPhotoFavorited(item))
+                {
+                    <div class="heart"></div>
+                }
+                else
+                {
+                    <div></div>
+                }*@
             </a>
         </div>
     }

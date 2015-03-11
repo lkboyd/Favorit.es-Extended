@@ -9,14 +9,25 @@ using Microsoft.AspNet.Identity;
 
 namespace Favorit.es.Controllers
 {
+
+    //to reinstall nuGet packages, Tools => NuGetPackageManager => Package Manager Console
+
+    // into the console type: update-package -reinstall
+
     public class HomeController : Controller
     {
+        //data context, data access layer, connects to the database
         private FavoritesEntities db = new FavoritesEntities();
 
+        /// <summary>
+        /// Gets the id of the currently logged in user
+        /// </summary>
         public string UserID
         {
             get { return User.Identity.GetUserId().ToString(); }
         }
+
+
 
         private List<Favorite> _userFavorites;
         public List<Favorite> UserFavorites

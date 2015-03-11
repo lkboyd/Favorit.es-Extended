@@ -13,7 +13,7 @@
     @foreach (var item in Model)
     {
         <div class="col-md-4 favorite">
-            <a href="@Url.Action("togglefavorite", "home", new { PhotoId = item.PhotoId, SmallUrl = item.SmallUrl, MediumUrl = item.MediumUrl, LargeUrl = item.LargeUrl, Tags = item.Tags, FavoriteId = item.FavoriteId })">
+            <a href="@Url.Action("unfavorite", "home", new { PhotoId = item.PhotoId, SmallUrl = item.SmallUrl, MediumUrl = item.MediumUrl, LargeUrl = item.LargeUrl, Tags = item.Tags, FavoriteId = item.FavoriteId })">
                 <img src="@item.MediumUrl" />
                 <div class="heart"></div>
             </a>
